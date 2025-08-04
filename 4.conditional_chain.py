@@ -22,6 +22,8 @@ model = ChatHuggingFace(llm=google_gemma_llm)
 
 parser = StrOutputParser()
 
+# ---------------------------------------------------------------------------------------------------
+
 # prompt1 = PromptTemplate(
 #     template='Classify the sentiment of the following feedback text into postive or negative \n {feedback}',
 #     input_variables=['feedback'],
@@ -32,6 +34,8 @@ parser = StrOutputParser()
 
 # print(classifier_chain.invoke({'feedback':'I am not sure about this product'}))
 
+# ---------------------------------------------------------------------------------------------------
+
 
 # The sentiment of the feedback text "The product is very good" is **positive**.
 
@@ -41,6 +45,7 @@ parser = StrOutputParser()
 
 # There's nothing in the text to suggest anything negative
 
+# ---------------------------------------------------------------------------------------------------
 
 
 # The sentiment of the feedback text is **neutral**.
@@ -53,6 +58,7 @@ parser = StrOutputParser()
 
 # While the feedback is neutral, it implicitly suggests a lack of confidence and could potentially lead to more negative information.
 
+# ---------------------------------------------------------------------------------------------------
 
 
 # As we can see the result can be either positive or negative or anything else ... , there is no strucuted output
@@ -100,6 +106,9 @@ branch_chain = RunnableBranch(
 chain = classifier_chain | branch_chain
 
 print(chain.invoke({'feedback': 'This is a beautiful phone'}))
+
+
+# ---------------------------------------------------------------------------------------------------
 
 # <think>
 
