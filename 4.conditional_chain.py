@@ -12,13 +12,13 @@ load_dotenv()
 
 hf_token = os.getenv("HUGGINGFACEHUB_ACCESS_TOKEN")
 
-google_gemma_llm = HuggingFaceEndpoint(
+deep_seek_llm = HuggingFaceEndpoint(
     repo_id="deepseek-ai/DeepSeek-R1-0528",
     task="text-generation",
     huggingfacehub_api_token=hf_token
 )
 
-model = ChatHuggingFace(llm=google_gemma_llm)   
+model = ChatHuggingFace(llm=deep_seek_llm)   
 
 parser = StrOutputParser()
 
